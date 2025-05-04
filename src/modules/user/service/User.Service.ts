@@ -5,7 +5,7 @@ import { Injectable } from '@nestjs/common';
  * Injectable() 装饰器类似于SpringBoot中的@compoment注解;
  */
 @Injectable()
-export class AppService {
+export class UserService {
   getHello(): string {
     return '学习Nest.js';
   }
