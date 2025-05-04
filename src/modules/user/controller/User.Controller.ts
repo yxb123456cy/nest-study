@@ -4,6 +4,8 @@ import {
   Controller,
   Get,
   HttpCode,
+  HttpException,
+  HttpStatus,
   Param,
   Post,
   Query,
@@ -56,8 +58,10 @@ export class UserController {
 
   @Post('/create')
   @HttpCode(200)
-  createUser(@Body() CreateUserDto: CreateUserDto): CreateUserDto {
+  createUser(@Body() dto: CreateUserDto): CreateUserDto {
+    if (dto.name === '陈颍')
+      throw new HttpException('拒绝访问', HttpStatus.FORBIDDEN);
     console.log('创建User');
-    return CreateUserDto;
+    return dto;
   }
 }
